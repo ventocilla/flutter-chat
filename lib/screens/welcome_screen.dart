@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat/screens/login_screen.dart';
 import 'package:flutter_chat/screens/registration_screen.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const routeName = '/welcome_screen';
@@ -73,10 +74,10 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                     //height: animation.value * 100,
                   ),
                 ),
-                Text(
-                  'Flash Chat',
+                TyperAnimatedTextKit(
+                  text: ['Flash Chat'],
                   //'${controller.value.toInt()}%',
-                  style: TextStyle(
+                  textStyle: TextStyle(
                     fontSize: 45.0,
                     fontWeight: FontWeight.w900,
                   ),
