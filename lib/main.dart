@@ -16,6 +16,7 @@ class FlutterChat extends StatelessWidget {
         ),
       ),
       home: WelcomeScreen(),
+      initialRoute: WelcomeScreen.routeName,
       routes: {
         WelcomeScreen.routeName: (context) => WelcomeScreen(),
         LoginScreen.routeName: (context) => LoginScreen(),
