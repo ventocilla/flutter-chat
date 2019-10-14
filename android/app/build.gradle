@@ -66,8 +66,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     // https://firebase.google.com/docs/android/setup#available-libraries
-    implementation "com.google.firebase:firebase-auth:18.0.0"
-    implementation "com.google.firebase:firebase-firestore:20.0.0"
+    //implementation "com.google.firebase:firebase-auth:18.0.0"
+    //implementation "com.google.firebase:firebase-firestore:20.0.0"
 }
 
 apply plugin: 'com.google.gms.google-services'
