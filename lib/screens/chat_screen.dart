@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat/constants.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_chat/screens/welcome_screen.dart';
 
 class ChatScreen extends StatefulWidget {
   static const routeName = '/chat_screen';
@@ -8,6 +10,29 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
+  final _auth = FirebaseAuth.instance;
+  FirebaseUser loggedInUser;
+
+  @override
+  void initState() {
+    super.initState();
+    getCurrentUser();
+  }
+
+  void getCurrentUser() async {
+    try {
+      final user = await _auth.currentUser();
+      if(user != null) {
+        loggedInUser = user;
+        print('User: $loggedInUser');
+        print(loggedInUser.email);
+        //print(Email: ${loggedInUser.email}');
+      }
+    } catch(e) {
+      print(e.toString());
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,6 +43,9 @@ class _ChatScreenState extends State<ChatScreen> {
               icon: Icon(Icons.close),
               onPressed: () {
                 //Implement logout functionality
+                _auth.signOut();
+                Navigator.pushNamed(context, WelcomeScreen.routeName);
+                //print(user.uid);
               }),
         ],
         title: Text('⚡️Chat'),
